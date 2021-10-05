@@ -62,6 +62,9 @@ author:
   bio    : "Programmer and Game Developer attending UW-Whitewater.  Graduating Spring 2022."
   location : "Milwaukee, WI"
   links:
+    - label: "E-Mail"
+      icon: "far fa-fw fa-envelope"
+      url: "mailto:thedjw191@gmail.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/djw191"
@@ -71,6 +74,9 @@ author:
 
 footer:
   links:
+    - label: "E-Mail"
+      icon: "far fa-fw fa-envelope"
+      url: "mailto:thedjw191@gmail.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/djw191"
