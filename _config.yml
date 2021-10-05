@@ -58,20 +58,25 @@ plugins:
 
 author:
   name   : "Derek Woodard"
-  avatar : "/assets/images/bio-photo.jpg"
+  avatar : "/assets/images/pfp.jpg"
   bio    : "Programmer and Game Developer attending UW-Whitewater.  Graduating Spring 2022."
   location : "Milwaukee, WI"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/djw191"
+    - label: "itch.io"
+      icon: "fab fa-fw fa-itch-io"
+      url: "https://thedjw191.itch.io/"
 
 footer:
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/djw191"
-
+    - label: "itch.io"
+      icon: "fab fa-fw fa-itch-io"
+      url: "https://thedjw191.itch.io/"
 defaults:
   # _posts
   - scope:
