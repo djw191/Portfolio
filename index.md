@@ -39,20 +39,20 @@ feature_row2:
     url: "/blog/380-Final/"
     btn_class: "btn--primary"
     btn_label: "Read About"
-  - image_path: 
-    alt: 
-    title: 
-    excerpt:
-    url: 
-    btn_class: 
-    btn_label: 
-  - image_path: 
-    alt: 
-    title: 
-    excerpt:
-    url: 
-    btn_class: 
-    btn_label: 
+  - image_path: /assets/images/oa1.jpg
+    alt: "ARTSTDIO 480 OA1"
+    title: "Zbrush Master Chief Helmet"
+    excerpt: "Master Chief Helmet modeled in blender, details sculpted in Zbrush"
+    url: "/blog/480-oa1/"
+    btn_class: "btn--primary"
+    btn_label: "Read About"
+  - image_path: /assets/images/480F.jpg
+    alt: "ARTSTDIO 480 final Project"
+    title: "Art Studio 480 Final Project"
+    excerpt:  "Man in robes sculpted in blender, clothes designed and simulated in Marvelous Designer"
+    url: "/blog/480-Final/"
+    btn_class: "btn--primary"
+    btn_label: "Read About"
 ---
 
 
