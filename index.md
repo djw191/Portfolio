@@ -17,11 +17,11 @@ feature_row:
     url: "/blog/272-Final/"
     btn_class: "btn--primary"
     btn_label: "Read About"
-  - image_path: /assets/images/351Prototype.jpg
-    alt: "COMM 351 Prototype"
-    title: "COMM 351 Prototype"
-    excerpt: "Branching text adventure game made in Twine, playable in html"
-    url: "/blog/351-Prototype/"
+  - image_path: /assets/images/Faldihr.jpg
+    alt: "MAGD Capstone - Faldihr"
+    title: "MAGD Capstone - Faldihr"
+    excerpt: "Rogue-like Dungeon Crawler made in Unity for a capstone course"
+    url: "/blog/487/"
     btn_class: "btn--primary"
     btn_label: "Read About"
   - image_path: /assets/images/Morkel.jpg
