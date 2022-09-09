@@ -24,11 +24,11 @@ feature_row:
     url: "/blog/487/"
     btn_class: "btn--primary"
     btn_label: "Read About"
-  - image_path: /assets/images/Morkel.jpg
-    alt: "Morkel"
-    title: "Morkel"
-    excerpt: "Procedural Dungeon Crawler Rougelike made for Ludum Dare 49"
-    url: "/blog/LDJ49/"
+  - image_path: /assets/images/Mythos.jpg
+    alt: "Mythos"
+    title: "Mythos"
+    excerpt: "Multiplayer Card Game made for my group capstone"
+    url: "/blog/Mythos/"
     btn_class: "btn--primary"
     btn_label: "Read About"  
 feature_row2:
