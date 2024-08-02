@@ -17,9 +17,7 @@ masthead_title: "Home"
 title: Derek Woodard
 email: thedjw191@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+    Portfolio website for Derek Woodard.  Software Engineer and Game Developer.
 github_username: djw191
 minimal_mistakes_skin: dark
 search: true
@@ -98,7 +96,6 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: true
       comments: true
       share: true
       related: true
