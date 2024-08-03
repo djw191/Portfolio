@@ -19,7 +19,7 @@ email: thedjw191@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
     Portfolio website for Derek Woodard.  Software Engineer and Game Developer.
 github_username: djw191
-minimal_mistakes_skin: dark
+minimal_mistakes_skin: dirt
 search: true
 
 # Build settings
@@ -33,6 +33,9 @@ timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 include:
   - _pages
+
+atom_feed:
+  hide: true
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -97,7 +100,7 @@ defaults:
       layout: single
       author_profile: true
       comments: true
-      share: true
+      share: false
       related: true
   # _pages
   - scope:
