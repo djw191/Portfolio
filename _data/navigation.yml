@@ -2,7 +2,7 @@ main:
   - title: "More Projects"
     url: /blog/
   - title: 'Resume'
-    url: /assets/Resume.pdf
+    url: /assets/resume.pdf
     target: "_blank"
   - title: "About"
     url: /about/

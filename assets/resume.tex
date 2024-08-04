@@ -1,0 +1,129 @@
+\documentclass[letter, 12pt]{article}
+    \usepackage{fullpage}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{textcomp}
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \textheight=10in
+    \pagestyle{empty}
+    \raggedright
+    \usepackage[left=0.8in,right=0.8in,bottom=0.8in,top=0.8in]{geometry}
+    \usepackage{blindtext}
+    \usepackage{hyperref}
+
+    %\renewcommand{\encodingdefault}{cg}
+%\renewcommand{\rmdefault}{lgrcmr}
+
+\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+
+% DEFINITIONS FOR RESUME %%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\area} [2] {
+    \vspace*{-9pt}
+    \begin{verse}
+        \textbf{#1}   #2
+    \end{verse}
+}
+
+\newcommand{\lineunder} {
+    \vspace*{-8pt} \\
+    \hspace*{-18pt} \hrulefill \\
+}
+
+\newcommand{\header} [1] {
+    {\hspace*{-18pt}\vspace*{6pt} \textsc{#1}}
+    \vspace*{-6pt} \lineunder
+}
+
+\newcommand{\employer} [3] {
+    { \textbf{#1} (#2)\\ \underline{\textbf{\emph{#3}}}\\  }
+}
+
+\newcommand{\contact} [3] {
+    \vspace*{-10pt}
+    \begin{center}
+        {\Huge \scshape {#1}}\\
+        #2 \\ #3
+    \end{center}
+    \vspace*{-8pt}
+}
+
+\newenvironment{achievements}{
+    \begin{list}
+        {$\bullet$}{\topsep 0pt \itemsep -2pt}}{\vspace*{4pt}
+    \end{list}
+}
+
+\newcommand{\schoolwithcourses} [4] {
+    \textbf{#1} #2 $\bullet$ #3\\
+    #4 \\
+    \vspace*{5pt}
+}
+
+\newcommand{\school} [4] {
+    \textbf{#1} #2 $\bullet$ #3\\
+    #4 \\
+}
+% END RESUME DEFINITIONS %%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{document}
+\vspace*{-40pt}
+
+    
+
+%==== Profile ====%
+\vspace*{-10pt}
+\begin{center}
+	{\Huge \scshape {Derek Woodard}}\\
+	\vspace{5mm}	
+	South Milwaukee, WI $\cdot$ thedjw191@gmail.com $\cdot$ (414) - 345 - 7764 $\cdot$ \url{https://djw191.github.io/Portfolio/}\\
+\end{center}
+
+%==== Education ====%
+\header{Education}
+\textbf{University of Wisconsin - Whitewater}\hfill Whitewater, WI\\
+B.S. Computer Science, Media Arts and Game Development \textit{GPA: 3.623} \hfill Sep 2018 - May 2022\\
+\vspace{2mm}
+\textbf{University of Wisconsin - Milwaukee}\hfill Milwaukee, WI\\
+M.S. Computer Science \textit{GPA: 3.583 (Current Cumulative)} \hfill Jan 2023 - Dec 2024 (Expected)\\
+\vspace{2mm}
+
+%==== Experience ====%
+\header{Work Experience}
+\vspace{1mm}
+
+\textbf{University of Wisconsin - Milwaukee} \hfill Milwaukee, WI\\
+\textit{Teaching Assistant} \hfill Jan 2023 - Dec 2024 (Expected)\\
+\vspace{-1mm}
+\begin{itemize} \itemsep 1pt
+	\item Lab instructor and grader for early to intermediate level computer science courses.
+\end{itemize}
+
+\header{Skills}
+\begin{tabular}{p{2in}p{4.25in}}
+	Programming Languages: & C\#, Java, C++, JavaScript, PHP, SQL, Scala, Haskell                                                                                                                            \\
+\\
+	Tools:                 & Unity, Visual Studio, Git, Blender, ZBrush, Photoshop, Premiere Pro                                                                                                             \\
+\\
+	Notable Courses:      & Compilers, Type Systems, Natural Language Processing, Game Development, Web Development, Database Management, Computer Networking \\
+\end{tabular}
+\vspace{2mm}
+
+\header{Projects}
+{\textbf{Mythos}}\hfill \url{https://djw191.github.io/Portfolio/blog/Mythos/}\\
+\begin{itemize} \itemsep 1pt
+	\item Multi-player card video game made for my group undergraduate capstone.
+	\item I was responsible for the networking on the project which involved writing a standalone \textbf{C\# socket server} to respond to and manage clients. It had to handle and store player login, matchmaking, and store their deck info. I created a C\# console application using the built in socket libraries along with \textbf{SQLite} for the database required.\\
+	\item This project won \textbf{Best in Show for Games} at the 2022 MAGD Expo, UW-Whitewater's yearly expo of the best art and interactive media at the university.
+\end{itemize}
+\vspace*{2mm}
+{\textbf{Altius}}\hfill \url{https://djw191.github.io/Portfolio/blog/Altius/}\\
+\begin{itemize} \itemsep 1pt
+	\item Single-player souls-like video game created for my intermediate game development course. \\
+	\item I was responsible for the \textbf{combat mechanics} and \textbf{NPC AI}. This involved creating a system for being able to change armor and weapons, a system for handling weapon damage collisions, and the pathfinding for the bots.\\
+\end{itemize}
+\vspace*{2mm}
+
+\ 
+\end{document}

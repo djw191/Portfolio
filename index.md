@@ -16,9 +16,9 @@ feature_row:
     url: "/blog/Mythos/"
     btn_class: "btn--primary"
     btn_label: "Read About"  
-  - image_path: /assets/images/Faldihr.jpg
-    alt: "MAGD Capstone - Faldihr"
-    title: "MAGD Capstone - Faldihr"
+  - image_path: /assets/images/Faldhir.jpg
+    alt: "MAGD Capstone - Faldhir"
+    title: "MAGD Capstone - Faldhir"
     excerpt: "Rogue-like Dungeon Crawler made in Unity for a capstone course"
     url: "/blog/487/"
     btn_class: "btn--primary"
