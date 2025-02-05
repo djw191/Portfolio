@@ -3,8 +3,8 @@ permalink: /about/
 title: "About"
 ---
 
-I attended UW-Whitewater, graduating Magna Cum Laude with a Bachelor of Science (B.S.) in Computer Science and Media Art and Game Design.
-I'm currently working as a Teaching Assistant while attending UW-Milwaukee pursuing my Master of Science (M.S.) in Computer Science.  I'm passionate about making games and have worked on a variety of projects with unique programming problems.
+I've recently joined the team at [MoonMuse Studio](https://www.moonmuse-studio.com/) as a Programmer, working on their upcoming game *IVOR*.  I attended UW-Whitewater, graduating Magna Cum Laude with a Bachelor of Science (B.S.) in Computer Science and Media Art and Game Design.  I'm now a recent graduate of UW-Milwaukee with a Master of
+Science (M.S.) in Computer Science.  
 
 <h2>Skills and Talents</h2>
 <h4>Languages</h4>
