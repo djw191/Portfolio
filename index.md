@@ -4,10 +4,9 @@ permalink: /
 hidden: true
 header:
   overlay_color: "#5e616c"
-  overlay_image: /assets/images/mm-home-page-feature.jpg
 excerpt: >
   Software Developer<br>
-  Game Designer<br>
+  Gameplay Programmer<br>
 feature_row:
   - image_path: /assets/images/Mythos.jpg
     alt: "Mythos"
@@ -16,18 +15,18 @@ feature_row:
     url: "/blog/Mythos/"
     btn_class: "btn--primary"
     btn_label: "Read About"  
-  - image_path: /assets/images/Faldihr.jpg
-    alt: "MAGD Capstone - Faldihr"
-    title: "MAGD Capstone - Faldihr"
-    excerpt: "Rogue-like dungeon crawler made in Unity for a capstone course"
-    url: "/blog/487/"
+  - image_path: /assets/images/Epic.png
+    alt: "Epic logo"
+    title: "Software Developer at Epic"
+    excerpt: "Building the inventory software hospitals use to manage medications and supplies"
+    url: "/blog/Epic/"
     btn_class: "btn--primary"
     btn_label: "Read About"
-  - image_path: /assets/images/Altius.jpg
-    alt: "MAGD372 Final - Altius"
-    title: "Intermediate Game Development Final - Altius"
-    excerpt:  "Short souls-like game, with winding dimly lit paths"
-    url: "/blog/Altius/"
+  - image_path: /assets/images/IVOR.png
+    alt: "IVOR logo"
+    title: "IVOR - MoonMuse Entertainment"
+    excerpt: "Gameplay programming on a Unity first-person shooter, from enemy AI to lighting"
+    url: "/tags/#ivor"
     btn_class: "btn--primary"
     btn_label: "Read About"
 ---
