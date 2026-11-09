@@ -1,136 +1,92 @@
-\documentclass[letter, 12pt]{article}
-    \usepackage{fullpage}
-    \usepackage{amsmath}
-    \usepackage{amssymb}
-    \usepackage{textcomp}
-    \usepackage[utf8]{inputenc}
-    \usepackage[T1]{fontenc}
-    \textheight=10in
-    \pagestyle{empty}
-    \raggedright
-    \usepackage[left=0.8in,right=0.8in,bottom=0.8in,top=0.8in]{geometry}
-    \usepackage{blindtext}
-    \usepackage{hyperref}
+\documentclass[letterpaper, 11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage[left=0.6in,right=0.6in,bottom=0.6in,top=0.6in]{geometry}
+\usepackage{hyperref}
+\hypersetup{colorlinks=false, pdfborder={0 0 0}, pdftitle={Derek Woodard - Resume}, pdfauthor={Derek Woodard}}
 
-    %\renewcommand{\encodingdefault}{cg}
-%\renewcommand{\rmdefault}{lgrcmr}
+% Make every character (including ligatures like "fi") extract as real text for ATS parsers
+\input{glyphtounicode}
+\pdfgentounicode=1
 
-\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+\pagestyle{empty}
+\raggedright
+\setlength{\parindent}{0pt}
+\setlist[itemize]{topsep=1pt, itemsep=0pt, parsep=0pt, partopsep=0pt, leftmargin=1.4em}
 
-% DEFINITIONS FOR RESUME %%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\header}[1]{%
+  \vspace{5pt}{\large\scshape #1}\\[-7pt]\rule{\linewidth}{0.4pt}\\[1pt]}
+\newcommand{\role}[4]{%
+  \textbf{#1} \hfill #2\\ \textit{#3} \hfill #4\\[-1pt]}
 
-\newcommand{\area} [2] {
-    \vspace*{-9pt}
-    \begin{verse}
-        \textbf{#1}   #2
-    \end{verse}
-}
-
-\newcommand{\lineunder} {
-    \vspace*{-8pt} \\
-    \hspace*{-18pt} \hrulefill \\
-}
-
-\newcommand{\header} [1] {
-    {\hspace*{-18pt}\vspace*{6pt} \textsc{#1}}
-    \vspace*{-6pt} \lineunder
-}
-
-\newcommand{\employer} [3] {
-    { \textbf{#1} (#2)\\ \underline{\textbf{\emph{#3}}}\\  }
-}
-
-\newcommand{\contact} [3] {
-    \vspace*{-10pt}
-    \begin{center}
-        {\Huge \scshape {#1}}\\
-        #2 \\ #3
-    \end{center}
-    \vspace*{-8pt}
-}
-
-\newenvironment{achievements}{
-    \begin{list}
-        {$\bullet$}{\topsep 0pt \itemsep -2pt}}{\vspace*{4pt}
-    \end{list}
-}
-
-\newcommand{\schoolwithcourses} [4] {
-    \textbf{#1} #2 $\bullet$ #3\\
-    #4 \\
-    \vspace*{5pt}
-}
-
-\newcommand{\school} [4] {
-    \textbf{#1} #2 $\bullet$ #3\\
-    #4 \\
-}
-% END RESUME DEFINITIONS %%%%%%%%%%%%%%%%%%%%%%%
-
-    \begin{document}
-\vspace*{-40pt}
-
-    
+\begin{document}
 
 %==== Profile ====%
-\vspace*{-10pt}
 \begin{center}
-	{\Huge \scshape {Derek Woodard}}\\
-	\vspace{5mm}	
-	South Milwaukee, WI $\cdot$ thedjw191@gmail.com $\cdot$ (414) - 345 - 7764 $\cdot$ \url{https://djw191.github.io/Portfolio/}\\
+  {\Huge \scshape Derek Woodard}\\[4pt]
+  Madison, WI $\cdot$ thedjw191@gmail.com $\cdot$ (414) 345-7764\\
+  \href{https://djw191.github.io/Portfolio/}{djw191.github.io/Portfolio} $\cdot$
+  \href{https://www.linkedin.com/in/derek-woodard-a0ba57165/}{linkedin.com/in/derek-woodard-a0ba57165} $\cdot$
+  \href{https://github.com/djw191}{github.com/djw191}
 \end{center}
+\vspace{-4pt}
 
-%==== Education ====%
-\header{Education}
-\textbf{University of Wisconsin - Milwaukee}\hfill Milwaukee, WI\\
-M.S. Computer Science \textit{GPA: 3.566} \hfill Jan 2023 - Dec 2024\\
-\vspace{2mm}
-\textbf{University of Wisconsin - Whitewater}\hfill Whitewater, WI\\
-B.S. Computer Science, Media Arts and Game Development \textit{GPA: 3.623} \hfill Sep 2018 - May 2022\\
-\vspace{2mm}
+Software developer with an M.S. in Computer Science, building healthcare inventory software at Epic and gameplay systems for an indie game studio, with experience leading features from design through release.
 
 %==== Experience ====%
 \header{Work Experience}
-\vspace{1mm}
 
-\textbf{MoonMuse Studio} \hfill Remote\\
-\textit{Programmer} \hfill Jan 2025 - Current\\
-\vspace{-1mm}
-\begin{itemize} \itemsep 1pt
-	\item Programmer at \href{https://www.moonmuse-studio.com/}{MoonMuse Studio}, working on their upcoming game \textit{IVOR}.
+\role{Epic Systems Corporation}{Verona, WI}{Software Developer}{May 2025 -- Present}
+\begin{itemize}
+  \item Build hospital inventory software in \textbf{MUMPS} and \textbf{React}, completing 25 features and fixes (19 shipped) and 24 approved technical designs across 3 releases.
+  \item \textbf{Led development} of projects, including one bringing purchase requests into a new inventory app, owning design, performance testing up to 10,000 items, and release sign-off (shipped May 2026).
+  \item Built 4 of 14 core features in a shared recall framework used across Epic's applications.
+  \item Delivered high-priority \textbf{security}, \textbf{data reliability}, and \textbf{accessibility} improvements to released software.
+  \item Work in an \textbf{Agile} team, using \textbf{Claude Code} to speed up code comprehension, debugging, and testing.
+\end{itemize}
+\vspace{4pt}
+
+\role{MoonMuse Entertainment LLC}{Remote}{Programmer (Part-Time, Volunteer)}{Jan 2025 -- Present}
+\begin{itemize}
+  \item Gameplay programmer on \textit{IVOR}, a \textbf{Unity} (\textbf{C\#}) first-person shooter with a public demo released in 2026.
+  \item Built and reworked \textbf{enemy AI}: state machines, vision-based detection, patrol and alert behaviors, and NavMesh-synced root motion.
+  \item Improved \textbf{performance} with LODs and GPU occlusion culling, and reworked \textbf{lighting} with lightmaps.
+  \item Built destruction and ragdoll physics, an event-driven architecture, and custom \textbf{Unity editor tools}.
+\end{itemize}
+\vspace{4pt}
+
+\role{University of Wisconsin -- Milwaukee}{Milwaukee, WI}{Teaching Assistant}{Jan 2023 -- Dec 2024}
+\begin{itemize}
+  \item Taught lab sections and graded for introductory and intermediate computer science courses.
 \end{itemize}
 
-\textbf{University of Wisconsin - Milwaukee} \hfill Milwaukee, WI\\
-\textit{Teaching Assistant} \hfill Jan 2023 - Dec 2024\\
-\vspace{-1mm}
-\begin{itemize} \itemsep 1pt
-	\item Lab instructor and grader for early to intermediate level computer science courses.
-\end{itemize}
+%==== Education ====%
+\header{Education}
+\textbf{University of Wisconsin -- Milwaukee}, Milwaukee, WI \hfill Jan 2023 -- Dec 2024\\
+M.S. Computer Science $\cdot$ GPA 3.57\\[3pt]
+\textbf{University of Wisconsin -- Whitewater}, Whitewater, WI \hfill Sep 2018 -- May 2022\\
+B.S. Computer Science and Media Arts \& Game Development $\cdot$ \textit{Magna Cum Laude} $\cdot$ GPA 3.62
 
+%==== Skills ====%
 \header{Skills}
-\begin{tabular}{p{2in}p{4.25in}}
-	Programming Languages: & C\#, Java, C++, JavaScript, PHP, SQL, Scala, Haskell                                                                                                                            \\
-\\
-	Tools:                 & Unity, Visual Studio, Git, Blender, ZBrush, Photoshop, Premiere Pro                                                                                                             \\
-\\
-	Notable Courses:      & Compilers, Type Systems, Natural Language Processing, Game Development, Web Development, Database Management, Computer Networking \\
-\end{tabular}
-\vspace{2mm}
+\textbf{Languages:} C\#, Java, C++, JavaScript, MUMPS, SQL, PHP, Scala, Haskell\\
+\textbf{Frameworks \& Tools:} React, Unity, Git, Visual Studio, SQLite, Claude Code, Blender, ZBrush, Photoshop, Premiere Pro\\
+\textbf{Practices:} Agile, technical design, performance optimization, accessibility, code review, game AI, networking
 
+%==== Projects ====%
 \header{Projects}
-{\textbf{Mythos}}\hfill \url{https://djw191.github.io/Portfolio/blog/Mythos/}\\
-\begin{itemize} \itemsep 1pt
-	\item Multi-player card video game made for my group undergraduate capstone.
-	\item I was responsible for the networking on the project which involved writing a standalone \textbf{C\# socket server} to respond to and manage clients. It had to handle and store player login, matchmaking, and store their deck info. I created a C\# console application using the built in socket libraries along with \textbf{SQLite} for the database required.\\
-	\item This project won \textbf{Best in Show for Games} at the 2022 MAGD Expo, UW-Whitewater's yearly expo of the best art and interactive media at the university.
+\textbf{Mythos} -- Networked multiplayer card game, 14-person team \hfill \href{https://djw191.github.io/Portfolio/blog/Mythos/}{djw191.github.io/Portfolio/blog/Mythos}
+\begin{itemize}
+  \item Built a standalone \textbf{C\# socket server} handling player login, matchmaking, and deck storage with \textbf{SQLite} for the Unity game client.
+  \item Won \textbf{Best in Show for Games} at UW-Whitewater's 2022 MAGD Expo.
+  \item Later rewrote the server in \textbf{Haskell} with proper \textbf{TLS}, fixing concurrency bugs from the original.
 \end{itemize}
-\vspace*{2mm}
-{\textbf{Altius}}\hfill \url{https://djw191.github.io/Portfolio/blog/Altius/}\\
-\begin{itemize} \itemsep 1pt
-	\item Single-player souls-like video game created for my intermediate game development course. \\
-	\item I was responsible for the \textbf{combat mechanics} and \textbf{NPC AI}. This involved creating a system for being able to change armor and weapons, a system for handling weapon damage collisions, and the pathfinding for the bots.\\
+\vspace{4pt}
+\textbf{Altius} -- Souls-like action game, 3-person team \hfill \href{https://djw191.github.io/Portfolio/blog/Altius/}{djw191.github.io/Portfolio/blog/Altius}
+\begin{itemize}
+  \item Built \textbf{combat systems} in Unity (equipment swapping, animation-timed hitboxes) and \textbf{NPC AI} pathfinding.
 \end{itemize}
-\vspace*{2mm}
 
-\ 
 \end{document}
