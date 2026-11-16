@@ -3,17 +3,14 @@ title: "IVOR - Rebuilding the Enemies"
 categories:
   - Blog
 tags:
-  - C#
-  - Unity
-  - Game
   - IVOR
   - MoonMuse
-  - Game AI
-  - Tools
+  - Game Development
 ---
-<img src="{{ site.baseurl }}/assets/images/IVOR.png" alt="IVOR logo"><br><br>
-Steam link:  <a href="https://store.steampowered.com/app/3033980/IVOR/" target="_blank">https://store.steampowered.com/app/3033980/IVOR/</a>
-<br><br>From January to March 2025 I worked through IVOR's enemies, bringing each one over to the game's newer systems and building some new ones from scratch.
-<br><br>A big part of that was converting enemy behavior from coroutines into explicit states.  That way an enemy can be saved and loaded in the middle of a fight, even halfway through a multi-step attack, and pick up right where it left off.
-<br><br>Every enemy had its own challenge.  The flying enemies move around an arena, so I built a node graph for them to travel along, with checks so nodes never connect through walls and the enemies avoid crashing into each other.  For a spellcaster that teleports around the room, I made a custom Unity editor tool that lets level designers place and aim teleport spots right in the scene.  For walking enemies, I synced animation root motion with the navigation mesh to get rid of foot sliding.  I also gave a gunner proper recoil and had to talk a charging troll out of running off ledges.
-<br><br>Along the way I made hitboxes consistent across enemies and added lock-on targets for the player's axe, so combat feels the same no matter what you're fighting.
+<video src="{{ site.baseurl }}/assets/videos/ivor-enemies.mp4?v=2" poster="{{ site.baseurl }}/assets/images/ivor-enemies.jpg?v=2" autoplay muted playsinline controls aria-label="The melee troll running at the player and launching off a ledge in IVOR" style="width: 100%; height: auto;"></video><br><br>
+<a href="https://store.steampowered.com/app/3033980/IVOR/" target="_blank">Steam Page</a>
+<br><br>I transitioned to working on enemies.  Many existing monsters needed changes and revisions to bring them in line with how the game had evolved.  As well, I began to work on implementing all-new enemies, like the melee troll variant.
+<br><br>A big part of that was converting enemy behavior into explicit state machines.  That way an enemy can be saved and loaded in the middle of a fight, even halfway through a multi-step attack, and pick up right where it left off.  This is important since we use an in-house system that saves the entire state of the game at any moment.
+<br><br>Every enemy had its own challenge.  The flying enemies travel along a node graph around their arena, and those nodes used to be placed by hand.  I built a tool that lets designers select a region and generates an irregularly spaced 3D node graph for it, automatically working around static obstacles.  For a ranged enemy that teleports around the room, I made a custom Unity editor tool that lets level designers place and aim teleport spots right in the scene.  For walking enemies, I synced animation root motion with the NavMesh to get rid of foot sliding.  The cannon troll got proper recoil.
+<br><br>The melee troll was the hardest to get working.  For it to fly off a ledge in a satisfying way I had to work around Unity's navigation mesh system, and then I had to talk it out of charging off ledges for no reason.
+<br><br>Finally, I made hitboxes consistent across enemies, so combat feels consistent and fair no matter what you're fighting.
