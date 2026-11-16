@@ -1,0 +1,12 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+// Default (dark) theme. Visitors whose system is set to light mode also get light.scss,
+// loaded on top of this from _includes/head/custom.html.
+@import "minimal-mistakes/skins/dark"; // skin
+@import "minimal-mistakes"; // main partials
+@import "home-cards";
+@import "compare";

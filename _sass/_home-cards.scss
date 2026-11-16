@@ -1,0 +1,404 @@
+/* Home page feature row: each item is a card, and the whole card is one link.
+   The link lives on the title (see _includes/feature_row) and is stretched over the card.
+   Imported by both assets/css/main.scss (dark) and assets/css/light.scss (light), so colours
+   come from the skin's variables. */
+.feature-card {
+  position: relative;
+  margin-bottom: 1.5em;
+  background: lighten($background-color, 6%);
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+
+.feature-card .archive__item-teaser {
+  border-radius: 0;
+}
+
+.feature-card .archive__item-teaser img {
+  display: block;
+  width: 100%;
+}
+
+.feature__item .feature-card .archive__item-body {
+  padding: 0.25em 1.1em 1em;
+}
+
+.feature-card .archive__item-excerpt p:last-child {
+  margin-bottom: 0;
+}
+
+.archive__item a.feature-card__link {
+  position: static; /* the theme makes links in cards relative, which would shrink the overlay to the title */
+  color: inherit;
+  text-decoration: none;
+}
+
+/* the stretched link */
+.feature-card__link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* small line arrow after the title: a cue that works without hover (phones) */
+.feature-card__link::after {
+  content: "";
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-left: 0.4em;
+  background-color: currentColor;
+  opacity: 0.55;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h16M13 5l7 7-7 7'/%3E%3C/svg%3E") no-repeat center / contain;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h16M13 5l7 7-7 7'/%3E%3C/svg%3E") no-repeat center / contain;
+  transition: transform 0.15s ease-out, opacity 0.15s ease-out;
+}
+
+.feature-card:hover,
+.feature-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.feature-card:hover .feature-card__link,
+.feature-card:focus-within .feature-card__link {
+  text-decoration: underline;
+}
+
+.feature-card:hover .feature-card__link::after,
+.feature-card:focus-within .feature-card__link::after {
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+.feature-card__link:focus {
+  outline: none;
+}
+
+.feature-card:focus-within {
+  outline: 2px solid $primary-color;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-card,
+  .feature-card__link::after {
+    transition: none;
+  }
+
+  .feature-card:hover,
+  .feature-card:focus-within {
+    transform: none;
+  }
+}
+
+/* equal-height cards in each row */
+@media (min-width: 600px) {
+  .feature__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .feature__wrapper::after {
+    display: none;
+  }
+
+  .feature__item .feature-card {
+    height: calc(100% - 1.5em);
+  }
+}
+
+/* Home page banner: the name is already in the top bar, so hide the banner's copy visually
+   (it stays in the page for screen readers and search engines). */
+.layout--splash .page__hero--overlay .page__title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Top bar: the name is the site's title, so give it more presence than the nav links */
+.greedy-nav a.site-title {
+  font-size: 1.5em;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+/* Banner background video (see _includes/page__hero.html). The banner's image stays underneath
+   and the video fades in over it only once it is actually playing. */
+.page__hero--video {
+  overflow: hidden;
+}
+
+.page__hero-video,
+.page__hero-video-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+  pointer-events: none;
+}
+
+.page__hero-video {
+  object-fit: cover;
+}
+
+.page__hero--video.is-playing .page__hero-video,
+.page__hero--video.is-playing .page__hero-video-shade {
+  opacity: 1;
+}
+
+.page__hero--video .wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+/* Home page banner text: now the only text in the banner, so centre it between equal padding
+   and set the two lines a little larger and closer together. */
+.layout--splash .page__hero--overlay .page__lead {
+  margin: 0;
+  font-size: 1.5em;
+  line-height: 1.3;
+}
+
+/* Collapsing banner (header.overlay_collapse in the page's front matter). Pure CSS, so it cannot
+   lag behind the scroll: the top bar (name) and the 16:9 banner (job titles + video) are pinned to
+   the top of the window, and the rest of the page slides up over them like a curtain. The titles
+   stay put until the page reaches them; then it covers the top bar as well. */
+.page__hero--overlay.page__hero--collapse {
+  position: sticky;
+  top: var(--masthead-h, 4.5em);
+  z-index: 1;
+  display: flex;
+  align-items: flex-start; /* job titles sit at the top, directly under the name in the top bar */
+  height: min(56.25vw, calc(100vh - var(--masthead-h, 4.5em)));
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.page__hero--collapse .wrapper {
+  width: 100%;
+  padding-top: 1em;
+}
+
+.layout--splash .masthead {
+  position: sticky;
+  top: 0;
+  background: $background-color;
+}
+
+/* the curtain: everything after the banner sits above it and the top bar, on a full-width
+   background so nothing shows through at the sides */
+.layout--splash #main,
+.layout--splash .page__footer {
+  position: relative;
+  z-index: 30;
+}
+
+.layout--splash #main {
+  margin-top: 0;
+  padding-top: 2em;
+}
+
+.layout--splash #main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: $background-color;
+  z-index: -1;
+}
+
+html {
+  overflow-x: clip; /* the 100vw background above must not add a sideways scrollbar */
+}
+
+/* Search: the theme's search field is set in very large type; bring it down to ordinary size. */
+.search-content .search-input {
+  font-size: 1.25em;
+}
+
+/* Search in the top bar. head/custom.html moves the theme's search form into the bar's nav, just
+   before the magnifier button, and adds .search-in-bar to <html>. Opening it makes room in the
+   row, so the nav links slide to the left of the field; results hang in a panel below it, and
+   the page stays visible underneath. */
+.search-in-bar .initial-content.is--hidden {
+  display: block;
+  visibility: visible;
+}
+
+.search-in-bar .greedy-nav .search-content {
+  display: block; /* always laid out, at zero width when closed, so opening can slide */
+  position: relative;
+  flex: 0 1 0;
+  min-width: 0;
+  margin: -1em 0; /* the field is taller than the links; it must not make the bar taller */
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: flex-basis 0.25s ease-out, min-width 0.25s ease-out, opacity 0.2s ease-out,
+    visibility 0s linear 0.25s;
+}
+
+.search-in-bar .greedy-nav .search-content.is--visible {
+  flex-basis: 22em;
+  min-width: 7em;
+  overflow: visible; /* the results panel hangs below the field */
+  opacity: 1;
+  visibility: visible;
+  transition: flex-basis 0.25s ease-out, min-width 0.25s ease-out, opacity 0.2s ease-out;
+}
+
+/* when space is tight the field narrows (down to its minimum) before any link is cut off */
+.search-in-bar .greedy-nav .search-content {
+  flex-shrink: 1000;
+}
+
+.search-in-bar .greedy-nav .visible-links {
+  flex: 1 1 auto;
+}
+
+/* the name keeps its one line while the field is open, so the bar keeps its height */
+.search-in-bar .greedy-nav .site-title {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search-in-bar .greedy-nav .search-content,
+  .search-in-bar .greedy-nav .search-content.is--visible {
+    transition: none;
+  }
+}
+
+.search-in-bar .greedy-nav .search-content.is--visible::after {
+  display: none;
+}
+
+.search-in-bar .greedy-nav .search-content__inner-wrap {
+  max-width: none;
+  padding: 0;
+  animation: none;
+}
+
+.search-in-bar .greedy-nav .search-content .search-input {
+  width: 100%;
+  padding: 0.45em 0.75em;
+  font-size: 1em;
+  color: $text-color;
+  background: lighten($background-color, 6%);
+  border: 1px solid $border-color;
+  border-radius: 4px;
+}
+
+.search-in-bar .greedy-nav .search-content .search-input:focus {
+  border-color: $primary-color;
+}
+
+.search-in-bar .greedy-nav .results {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: max(100%, 20em);
+  max-width: calc(100vw - 2em);
+  max-height: 70vh;
+  margin-top: 0.5em;
+  padding: 0.25em 1em 0.5em;
+  overflow-y: auto;
+  background: lighten($background-color, 6%);
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* no panel for an empty field or a query with no matches */
+.search-in-bar .greedy-nav .results:not(:has(.list__item)),
+.search-in-bar.search-empty .greedy-nav .results {
+  display: none;
+}
+
+/* the theme's "N Result(s) found" line is not shown anywhere */
+.results__found {
+  display: none;
+}
+
+/* Search page (_pages/search.md): head/custom.html moves the results list out of the bar into the
+   page. An empty field lists nothing; a query with no matches says so. */
+.search-empty .search-page__results .results {
+  display: none;
+}
+
+.search-ran:not(.search-empty) .search-page__results .results:not(:has(.list__item))::after {
+  content: "No matching posts.";
+}
+
+.search-in-bar .greedy-nav .results a {
+  margin: 0;
+}
+
+.search-in-bar .greedy-nav .results .archive__item {
+  width: auto;
+  margin-bottom: 1em;
+}
+
+.search-in-bar .greedy-nav .results .archive__item-title {
+  font-size: 1em;
+}
+
+.search-in-bar .greedy-nav .results .archive__item-excerpt {
+  font-size: 0.8em;
+}
+
+.search-in-bar .greedy-nav .results .archive__item-teaser {
+  display: none;
+}
+
+/* keep the open search above the page that slides over the top bar on the home page */
+.masthead:has(.search-content.is--visible) {
+  z-index: 40;
+}
+
+/* the theme pads every form and leaves this label visible; neither belongs in the bar */
+.search-in-bar .greedy-nav .search-content__form {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.search-in-bar .greedy-nav .search-content label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.search-in-bar .greedy-nav .search-content .search-input {
+  margin: 0;
+}
+
+/* set by the script when the open field leaves too little room for all the links */
+.search-in-bar .greedy-nav.search-crowded .visible-links {
+  visibility: hidden;
+}

@@ -1,0 +1,9 @@
+---
+# Light theme, only applied when the visitor's system is in light mode (see _includes/head/custom.html)
+---
+
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/dirt"; // skin
+@import "minimal-mistakes"; // main partials
+@import "home-cards";

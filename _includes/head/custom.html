@@ -1,4 +1,116 @@
+<!-- Theme: main.css is the dark theme; the light theme is layered on top only when the system asks for light -->
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="{{ '/assets/css/light.css' | relative_url }}" media="(prefers-color-scheme: light)">
+
 <!-- Favicons -->
 <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon-32.png' | relative_url }}">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/apple-touch-icon.png' | relative_url }}">
+
+<!-- Search in the top bar: move the theme's search form into the bar (styled in _sass/_home-cards.scss).
+     Typing lists matches in a panel under the field; Enter opens the search page with the full list.
+     Without JavaScript the theme's own full-page search still works. -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var toggle = document.querySelector(".greedy-nav .search__toggle");
+    var search = document.querySelector(".search-content");
+    if (!toggle || !search) return;
+    toggle.parentNode.insertBefore(search, toggle);
+    document.documentElement.classList.add("search-in-bar");
+
+    // The field takes room from the nav links, so let the theme re-fit them (it only does on resize).
+    // If the links still don't all fit beside the open field, hide them all until it closes,
+    // so none is left half cut off.
+    var nav = toggle.parentNode;
+    var links = nav.querySelector(".visible-links");
+    function fitLinks() {
+      nav.classList.remove("search-crowded");
+      var open = search.classList.contains("is--visible");
+      // The links are right-aligned, so when they don't fit, the first one sticks out past the list's left edge.
+      var first = links && links.firstElementChild;
+      if (open && first && first.getBoundingClientRect().left < links.getBoundingClientRect().left - 1) {
+        nav.classList.add("search-crowded");
+      }
+    }
+    toggle.addEventListener("click", function () {
+      setTimeout(function () {
+        window.dispatchEvent(new Event("resize"));
+        fitLinks();
+      }, 0);
+    });
+    window.addEventListener("resize", function () { setTimeout(fitLinks, 0); });
+    // The field slides open and shut, so fit the links again once it has finished moving.
+    search.addEventListener("transitionend", function (event) {
+      if (event.target === search && event.propertyName === "flex-basis") window.dispatchEvent(new Event("resize"));
+    });
+
+    var input = search.querySelector("input");
+    if (!input) return;
+    var root = document.documentElement;
+    var searchUrl = "{{ '/search/' | relative_url }}";
+    var pageResults = document.getElementById("search-page-results"); // only on the search page (_pages/search.md)
+
+    // An empty field shows no results at all.
+    function markEmpty() {
+      root.classList.toggle("search-empty", input.value.trim() === "");
+    }
+    ["input", "keyup", "change"].forEach(function (name) { input.addEventListener(name, markEmpty); });
+    toggle.addEventListener("click", function () { setTimeout(markEmpty, 0); });
+    markEmpty();
+
+    // Enter goes to the search page, which lists the results for what was typed.
+    input.addEventListener("keydown", function (event) {
+      if (event.key !== "Enter") return;
+      var query = input.value.trim();
+      if (query && !pageResults) window.location.href = searchUrl + "?q=" + encodeURIComponent(query);
+    });
+
+    // The field closes again when focus leaves it: a click elsewhere on the page, or tabbing past the
+    // magnifier. Not on the search page, where the field is the page's own input, and not when the
+    // whole window merely loses focus (switching to another app and back leaves it open).
+    if (!pageResults) {
+      var pressing = false; // a press on the field, its results or the magnifier is not "leaving"
+      [search, toggle].forEach(function (el) {
+        el.addEventListener("pointerdown", function () { pressing = true; });
+        el.addEventListener("focusout", function (event) {
+          var next = event.relatedTarget;
+          if (next && (search.contains(next) || toggle.contains(next))) return;
+          setTimeout(function () {
+            var active = document.activeElement;
+            if (pressing || !document.hasFocus() || search.contains(active) || toggle.contains(active)) return;
+            if (!search.classList.contains("is--visible")) return;
+            search.classList.remove("is--visible");
+            var content = document.querySelector(".initial-content");
+            if (content) content.classList.remove("is--hidden");
+            fitLinks();
+          }, 0);
+        });
+      });
+      ["pointerup", "pointercancel"].forEach(function (name) {
+        document.addEventListener(name, function () { setTimeout(function () { pressing = false; }, 0); });
+      });
+    }
+
+    // On the search page the results are listed in the page itself rather than in the panel under
+    // the field. The field opens holding the query from the address, and typing updates the list.
+    if (pageResults) {
+      var results = search.querySelector(".results");
+      if (results) pageResults.appendChild(results);
+      root.classList.add("search-page");
+      input.addEventListener("input", function () {
+        var query = input.value.trim();
+        history.replaceState(null, "", searchUrl + (query ? "?q=" + encodeURIComponent(query) : ""));
+      });
+      // Wait for the theme's own search script: it starts through jQuery's ready queue, so joining
+      // that queue now (the theme's scripts have loaded by this point) runs this after it.
+      var start = function () {
+        input.value = new URLSearchParams(window.location.search).get("q") || "";
+        if (!search.classList.contains("is--visible")) toggle.click();
+        markEmpty();
+        if (window.jQuery) window.jQuery(input).trigger("keyup");
+        root.classList.add("search-ran");
+      };
+      if (window.jQuery) window.jQuery(start); else window.addEventListener("load", start);
+    }
+  });
+</script>

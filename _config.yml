@@ -13,11 +13,11 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-masthead_title: "Home"
+masthead_title: "Derek Woodard"
 title: Derek Woodard
 email: thedjw191@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-    Portfolio website for Derek Woodard.  Software Engineer and Game Developer.
+    Portfolio website for Derek Woodard.  Software Developer at Epic and Unity Gameplay Programmer.
 url: "https://djw191.github.io"
 github_username: djw191
 minimal_mistakes_skin: dirt
@@ -25,7 +25,10 @@ search: true
 
 # Build settings
 markdown: kramdown
-remote_theme: mmistakes/minimal-mistakes
+# Pinned to the exact theme commit the site was built and tested against on 2026-11-13
+# (six commits after release 4.28.1). _includes/feature_row and _includes/page__hero.html are
+# copies of this version's files, so update them together with this pin.
+remote_theme: mmistakes/minimal-mistakes@411699970e028cd5545d40fbcd3e2159275f72c2
 # Outputting
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
@@ -64,7 +67,7 @@ plugins:
 author:
   name   : "Derek Woodard"
   avatar : "/assets/images/pfp.jpg"
-  bio    : "Software Developer at Epic Systems and volunteer Programmer at MoonMuse Entertainment LLC.  B.S. from UW-Whitewater (2022), M.S. in Computer Science from UW-Milwaukee (2024)."
+  bio    : "Software Developer at Epic Systems and contract Gameplay Programmer at MoonMuse Entertainment LLC.  B.S. from UW-Whitewater (2022), M.S. in Computer Science from UW-Milwaukee (2024)."
   location : "Madison, WI"
   links:
     - label: "E-Mail"
@@ -78,7 +81,7 @@ author:
       url: "https://thedjw191.itch.io/"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/derek-woodard-a0ba57165/"
+      url: "https://www.linkedin.com/in/derek-j-woodard/"
 
 footer:
   links:
@@ -93,7 +96,7 @@ footer:
       url: "https://thedjw191.itch.io/"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/derek-woodard-a0ba57165/"
+      url: "https://www.linkedin.com/in/derek-j-woodard/"
 defaults:
   # _posts
   - scope:
