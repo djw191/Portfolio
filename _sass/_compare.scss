@@ -1,0 +1,59 @@
+// Before/after comparison slider (_includes/compare.html), built on the img-comparison-slider
+// web component. Only the layout and the corner labels are styled here.
+.compare {
+  margin: 0 0 1.5em;
+
+  // The theme gives captions a serif font; use the page's own font instead.
+  > figcaption {
+    font-family: inherit;
+    margin-top: 0.5em;
+    font-size: 0.8em;
+    opacity: 0.8;
+  }
+}
+
+.compare__slider {
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+  --divider-width: 2px;
+  --divider-color: #fff;
+  --default-handle-color: #fff;
+  --default-handle-opacity: 1;
+
+  &:focus {
+    outline: none;
+  }
+  &:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+}
+
+.compare__side {
+  position: relative;
+  margin: 0;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+}
+
+.compare__label {
+  position: absolute;
+  top: 0.6em;
+  padding: 0.25em 0.6em;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 0.7em;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  pointer-events: none;
+}
+.compare__label--before { left: 0.6em; }
+.compare__label--after { right: 0.6em; }

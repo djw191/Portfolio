@@ -1,0 +1,28 @@
+{%- comment -%}
+  Before/after comparison slider, using the img-comparison-slider web component
+  (https://github.com/sneas/img-comparison-slider). It handles mouse, touch and keyboard.
+  Usage:
+    {% include compare.html before="/assets/images/ivor/hdrp-1.jpg" after="/assets/images/ivor/urp-1.jpg"
+       before_label="HDRP" after_label="URP" alt="The temple hall" caption="Optional caption" %}
+  Both images should be the same size (same camera, same resolution).
+  Label styles live in _sass/_compare.scss.
+{%- endcomment -%}
+{%- assign before_label = include.before_label | default: "Before" -%}
+{%- assign after_label = include.after_label | default: "After" -%}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8.0.6/dist/styles.css">
+<script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8.0.6/dist/index.js"></script>
+<figure class="compare">
+  <img-comparison-slider class="compare__slider">
+    <figure slot="first" class="compare__side">
+      <img src="{{ include.before | relative_url }}" alt="{{ include.alt }}, {{ before_label }}">
+      <span class="compare__label compare__label--before">{{ before_label }}</span>
+    </figure>
+    <figure slot="second" class="compare__side">
+      <img src="{{ include.after | relative_url }}" alt="{{ include.alt }}, {{ after_label }}">
+      <span class="compare__label compare__label--after">{{ after_label }}</span>
+    </figure>
+  </img-comparison-slider>
+  {%- if include.caption %}
+  <figcaption>{{ include.caption }}</figcaption>
+  {%- endif %}
+</figure>
