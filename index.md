@@ -5,7 +5,7 @@ hidden: true
 header:
   overlay_color: "#5e616c"
   overlay_image: /assets/images/ivor-banner.jpg
-  overlay_video: /assets/videos/ivor-banner.mp4?v=8 # raise the number whenever the file is replaced, so browsers drop the old copy
+  overlay_video: /assets/videos/ivor-banner.mp4?v=9 # raise the number whenever the file is replaced, so browsers drop the old copy
   overlay_filter: 0.5
   overlay_collapse: true
 excerpt: >
