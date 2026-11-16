@@ -3,7 +3,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{enumitem}
-\usepackage[left=0.6in,right=0.6in,bottom=0.6in,top=0.6in]{geometry}
+\usepackage[left=0.6in,right=0.6in,bottom=0.5in,top=0.5in]{geometry}
 \usepackage{hyperref}
 \hypersetup{colorlinks=false, pdfborder={0 0 0}, pdftitle={Derek Woodard - Resume}, pdfauthor={Derek Woodard}}
 
@@ -28,7 +28,7 @@
   {\Huge \scshape Derek Woodard}\\[4pt]
   Madison, WI $\cdot$ thedjw191@gmail.com $\cdot$ (414) 345-7764\\
   \href{https://djw191.github.io/Portfolio/}{djw191.github.io/Portfolio} $\cdot$
-  \href{https://www.linkedin.com/in/derek-woodard-a0ba57165/}{linkedin.com/in/derek-woodard-a0ba57165} $\cdot$
+  \href{https://www.linkedin.com/in/derek-j-woodard/}{linkedin.com/in/derek-j-woodard} $\cdot$
   \href{https://github.com/djw191}{github.com/djw191}
 \end{center}
 \vspace{-4pt}
@@ -38,22 +38,25 @@ Software developer with an M.S. in Computer Science, building healthcare invento
 %==== Experience ====%
 \header{Work Experience}
 
-\role{Epic Systems Corporation}{Verona, WI}{Software Developer}{May 2025 -- Present}
+\role{Epic Systems Corporation}{Verona, WI}{Software Developer, EpicOps -- Supply Chain}{May 2025 -- Present}
 \begin{itemize}
-  \item Build hospital inventory software in \textbf{MUMPS} and \textbf{React}, completing 25 features and fixes (19 shipped) and 24 approved technical designs across 3 releases.
-  \item \textbf{Led development} of projects, including one bringing purchase requests into a new inventory app, owning design, performance testing up to 10,000 items, and release sign-off (shipped May 2026).
-  \item Built 4 of 14 core features in a shared recall framework used across Epic's applications.
+  \item Build \textbf{full-stack} hospital inventory software in \textbf{MUMPS}, \textbf{C\#}, \textbf{TypeScript}, and \textbf{React}, completing many features and fixes and dozens of approved technical designs across multiple releases.
+  \item \textbf{Led development} of projects, including one bringing purchase requests into a new inventory app, owning design, performance testing to handle a very high number of items, and sign-off (shipped May 2026).
+  \item Built core features in a shared recall framework used across Epic's applications.
+  \item Built \textbf{reporting} tables, \textbf{data exports}, and logging of feature use by end users in \textbf{Clarity} and \textbf{Caboodle} using \textbf{SQL}.
   \item Delivered high-priority \textbf{security}, \textbf{data reliability}, and \textbf{accessibility} improvements to released software.
-  \item Work in an \textbf{Agile} team, using \textbf{Claude Code} to speed up code comprehension, debugging, and testing.
+  \item Write \textbf{unit tests} and \textbf{workflow tests} in an \textbf{Agile} team, using \textbf{Claude Code} to speed up debugging.
 \end{itemize}
 \vspace{4pt}
 
-\role{MoonMuse Entertainment LLC}{Remote}{Programmer (Part-Time, Volunteer)}{Jan 2025 -- Present}
+\role{MoonMuse Entertainment LLC}{Remote}{Gameplay Programmer (Part-Time, Contract)}{Jan 2025 -- Present}
 \begin{itemize}
-  \item Gameplay programmer on \textit{IVOR}, a \textbf{Unity} (\textbf{C\#}) first-person shooter with a public demo released in 2026.
-  \item Built and reworked \textbf{enemy AI}: state machines, vision-based detection, patrol and alert behaviors, and NavMesh-synced root motion.
-  \item Improved \textbf{performance} with LODs and GPU occlusion culling, and reworked \textbf{lighting} with lightmaps.
-  \item Built destruction and ragdoll physics, an event-driven architecture, and custom \textbf{Unity editor tools}.
+  \item Gameplay programmer on \textit{IVOR}, a \textbf{Unity} (\textbf{C\#}) first-person shooter with a public \textbf{Steam} demo (2026).
+  \item Built and reworked \textbf{enemy AI}: finite state machines, vision detection, patrol and alert behaviors, and NavMesh-synced root motion.
+  \item Built a tool converting materials to the Universal Render Pipeline (\textbf{URP}), improved \textbf{performance} using the Unity Profiler, LODs, and GPU occlusion culling, and reworked \textbf{lighting}.
+  \item Built destruction and ragdolls.  Migrated systems to event-driven ScriptableObject event channels.
+  \item \textbf{Tool creation}: built \textbf{Unity editor tools} for level designers, including a 3D node-graph generator for flying enemies, patrol-route and teleport-point editors, and a level data inspector.
+  \item Contributed to \textbf{gameplay design}, tuning combat and enemy behavior with the level designers.
 \end{itemize}
 \vspace{4pt}
 
@@ -71,9 +74,9 @@ B.S. Computer Science and Media Arts \& Game Development $\cdot$ \textit{Magna C
 
 %==== Skills ====%
 \header{Skills}
-\textbf{Languages:} C\#, Java, C++, JavaScript, MUMPS, SQL, PHP, Scala, Haskell\\
-\textbf{Frameworks \& Tools:} React, Unity, Git, Visual Studio, SQLite, Claude Code, Blender, ZBrush, Photoshop, Premiere Pro\\
-\textbf{Practices:} Agile, technical design, performance optimization, accessibility, code review, game AI, networking
+\textbf{Languages:} C\#, TypeScript, JavaScript, Java, C++, Python, SQL, MUMPS, PHP, Scala, Haskell\\
+\textbf{Frameworks \& Tools:} React, Unity, Git, SQLite, Claude Code, Blender, ZBrush, Photoshop, Premiere Pro\\
+\textbf{Practices:} Full-stack, Agile, unit testing, code review, optimization, accessibility, game AI, networking
 
 %==== Projects ====%
 \header{Projects}
@@ -82,11 +85,6 @@ B.S. Computer Science and Media Arts \& Game Development $\cdot$ \textit{Magna C
   \item Built a standalone \textbf{C\# socket server} handling player login, matchmaking, and deck storage with \textbf{SQLite} for the Unity game client.
   \item Won \textbf{Best in Show for Games} at UW-Whitewater's 2022 MAGD Expo.
   \item Later rewrote the server in \textbf{Haskell} with proper \textbf{TLS}, fixing concurrency bugs from the original.
-\end{itemize}
-\vspace{4pt}
-\textbf{Altius} -- Souls-like action game, 3-person team \hfill \href{https://djw191.github.io/Portfolio/blog/Altius/}{djw191.github.io/Portfolio/blog/Altius}
-\begin{itemize}
-  \item Built \textbf{combat systems} in Unity (equipment swapping, animation-timed hitboxes) and \textbf{NPC AI} pathfinding.
 \end{itemize}
 
 \end{document}
